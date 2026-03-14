@@ -1,6 +1,6 @@
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { CourseProvider } from './context/CourseContext';
+import { CourseProvider } from './context/CourseProvider';
 import { useAuth } from './hooks/useAuth';
 import Classes from './pages/Classes';
 import Dashboard from './pages/Dashboard';

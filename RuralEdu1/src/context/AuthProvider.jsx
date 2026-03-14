@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import AuthContext from './authContext';
+import { useCallback, useMemo, useState } from 'react';
+import AuthContext from './AuthContext';
 
 const storageKey = 'ruralEduAuth';
 
@@ -19,15 +19,15 @@ const getStoredUser = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => getStoredUser());
 
-  const login = (authPayload) => {
+  const login = useCallback((authPayload) => {
     setUser(authPayload);
     window.localStorage.setItem(storageKey, JSON.stringify(authPayload));
-  };
+  }, []);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     setUser(null);
     window.localStorage.removeItem(storageKey);
-  };
+  }, []);
 
   const value = useMemo(
     () => ({
@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
       login,
       logout,
     }),
-    [user]
+    [user, login, logout]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

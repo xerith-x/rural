@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import CourseContext from './courseContext';
+import CourseContext from './CourseContext';
 import { fetchCourses, fetchLessons } from '../services/api';
 import { useAuth } from '../hooks/useAuth';
 
