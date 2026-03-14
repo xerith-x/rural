@@ -34,10 +34,10 @@ const features = [
 ];
 
 const platformStats = [
-  { label: 'Active learners', value: '3,500+' },
-  { label: 'Partner schools', value: '72' },
-  { label: 'Learning resources', value: '1,200+' },
-  { label: 'Average quiz score lift', value: '28%' },
+  { id: 'active-learners', label: 'Active learners', value: '3,500+' },
+  { id: 'partner-schools', label: 'Partner schools', value: '72' },
+  { id: 'resources', label: 'Learning resources', value: '1,200+' },
+  { id: 'quiz-lift', label: 'Average quiz score lift', value: '28%' },
 ];
 
 const audienceHighlights = [
@@ -103,7 +103,7 @@ export default function Landing() {
         </div>
         <div className="hero-stats">
           {platformStats.map((stat) => (
-            <div className="hero-stat-card" key={stat.label}>
+            <div className="hero-stat-card" key={stat.id}>
               <p className="hero-stat-value">{stat.value}</p>
               <p className="hero-stat-label">{stat.label}</p>
             </div>

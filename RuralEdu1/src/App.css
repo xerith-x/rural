@@ -564,7 +564,7 @@
 .testimonial-card p {
   font-size: 0.98rem;
   line-height: 1.6;
-  color: #334155;
+  color: var(--text-primary);
 }
 
 .testimonial-card footer {
