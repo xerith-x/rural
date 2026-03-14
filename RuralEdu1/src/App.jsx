@@ -5,6 +5,7 @@ import { useAuth } from './hooks/useAuth';
 import Classes from './pages/Classes';
 import Dashboard from './pages/Dashboard';
 import Downloads from './pages/Downloads';
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Progress from './pages/Progress';
 import Register from './pages/Register';
@@ -72,11 +73,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
+              element={isAuthenticated ? <Dashboard /> : <Landing />}
             />
             <Route
               path="/classes"
@@ -120,7 +117,7 @@ function App() {
             />
             <Route
               path="*"
-              element={<Navigate to={isAuthenticated ? '/' : '/login'} replace />}
+              element={<Navigate to="/" replace />}
             />
           </Routes>
         </CourseProvider>
